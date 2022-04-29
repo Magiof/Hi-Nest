@@ -1,4 +1,4 @@
-import { Query } from '@nestjs/common';
+import { Query, Req, Res } from '@nestjs/common';
 import {
   Controller,
   Delete,
@@ -18,7 +18,7 @@ export class MoviesController {
   constructor(private readonly moviesService: MoviesService) {}
 
   @Get()
-  getAll(): Movie[] {
+  getAll(@Req() req, @Res() res): Movie[] {
     return this.moviesService.getAll();
   }
 
